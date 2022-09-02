@@ -4,4 +4,27 @@
 
 <h1>My Plants</h1>
 
+
+{% if plants.count %}
+{% for plant in plants %}
+<div>
+    
+        
+        <div>
+            <span>{{ plant.nickname }}</span>
+            <p>Common Name: {{ plant.common_name }}</p>
+            <p>Scientific Name: {{ plant.scientific_name }}</p>
+            <p>Care Difficulty: {{ plant.care_difficulty }} </p>
+            <p>Light Requirement: {{ plant.light_requirement }}</p>
+            <p>Water Interval: {{ plant.water_interval }}</p>
+        </div>
+    
+</div>
+{% endfor %}
+{% else %}
+    <p>No plants yet. :(</p>
+{% endif %}
+    
+
+    
 {% endblock %}
