@@ -13,12 +13,12 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
-            {% comment %} {% if user.is_authenticated %} {% endcomment %}
+            {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">View My Plants</a></li>
-            {% comment %} <li><a href="{% url 'logout' %}">Log Out</li> {% endcomment %}
-            {% comment %} {% else %} {% endcomment %}
-            {% comment %} <li><a href="{% url 'login' %}">Log In</a></li> {% endcomment %}
-            {% comment %} {% endif %} {% endcomment %}
+            <li><a href="{% url 'logout' %}">Log Out</li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
         </ul>
     </nav>
     <main>
