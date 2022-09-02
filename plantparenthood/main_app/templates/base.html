@@ -9,6 +9,14 @@
 </head>
 <body>
     <h1>Plant Parenthood</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'index' %}">View My Plants</a></li>
+            <li>Log-Out</li>
+        </ul>
+    </nav>
     <main>
         {% block content %}
 
