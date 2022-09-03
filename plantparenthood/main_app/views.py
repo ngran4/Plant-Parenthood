@@ -26,6 +26,11 @@ def plants_index(request):
     plants = Plant.objects.filter(user=request.user)
     return render(request, 'plants/index.html', {'plants': plants})
 
+@login_required
+def plants_detail(request, plant_id):
+  plant = Plant.objects.get(id=plant_id)
+  return render(request, 'plants/detail.html', {'plant': plant})
+
 class PlantCreate(LoginRequiredMixin, CreateView):
     model = Plant
     fields = ['nickname', 'common_name', 'scientific_name', 'care_difficulty', 'light_requirement', 'water_interval']

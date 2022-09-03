@@ -8,8 +8,9 @@
 {% if plants.count %}
 {% for plant in plants %}
 <div>
+  <a href="{% url 'detail' plant.id %}">
   <div>
-    <span>{{ plant.nickname }}</span>
+    <span>{{ plant.nickname }}</span></a>
     <p>Common Name: {{ plant.common_name }}</p>
     <p>Scientific Name: {{ plant.scientific_name }}</p>
     <p>Care Difficulty: {{ plant.care_difficulty }} </p>
