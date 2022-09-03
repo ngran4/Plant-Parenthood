@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -34,6 +34,16 @@ class PlantCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user  
         return super().form_valid(form)
+
+
+class PlantUpdate(LoginRequiredMixin, UpdateView):
+  model = Plant
+  fields = ['nickname', 'common_name', 'scientific_name', 'care_difficulty', 'light_requirement', 'water_interval']
+
+class PlantDelete(LoginRequiredMixin, DeleteView):
+  model = Plant
+  success_url = '/plants/'
+
 
 def signup(request):
     error_message = ''
