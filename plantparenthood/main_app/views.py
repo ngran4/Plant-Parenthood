@@ -44,6 +44,7 @@ class PlantCreate(LoginRequiredMixin, CreateView):
 class PlantUpdate(LoginRequiredMixin, UpdateView):
   model = Plant
   fields = ['nickname', 'common_name', 'scientific_name', 'care_difficulty', 'light_requirement', 'water_interval']
+  success_url = '/plants/'
 
 class PlantDelete(LoginRequiredMixin, DeleteView):
   model = Plant
