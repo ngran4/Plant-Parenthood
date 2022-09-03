@@ -1,7 +1,14 @@
 from django.shortcuts import render, redirect
 
+from django.views.generic.edit import CreateView
+
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+# Authorization stuff
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from .models import Plant
 
 from django.http import HttpResponse
 # Create your views here.
@@ -14,10 +21,19 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-
+@login_required
 def plants_index(request):
-    return render(request, 'plants/index.html')
+    plants = Plant.objects.filter(user=request.user)
+    return render(request, 'plants/index.html', {'plants': plants})
 
+class PlantCreate(LoginRequiredMixin, CreateView):
+    model = Plant
+    fields = ['nickname', 'common_name', 'scientific_name', 'care_difficulty', 'light_requirement', 'water_interval']
+    success_url = '/plants/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
 
 def signup(request):
     error_message = ''
