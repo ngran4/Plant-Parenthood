@@ -6,19 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+        .base-header-plant {
+            display: flex;
+            flex-direction: row;
+            align-content: flex-end;
+            position: absolute;
+            top: 425px;
+            font-size: 150px;
+        }
+        .base-header-parenthood {
+            display: flex;
+            flex-direction: row;
+            align-content: flex-end;
+            position: absolute;
+            top: 525px;
+            font-size: 150px;
+        }
+    </style>
 </head>
     <title>Document</title>
 </head>
 <body>
-    
-    <h1 class="base-header">Plant Parenthood</h1>
-    
     <nav class="navbar navbar-expand-sm navbar-light bg-success">
         <div class="collapse navbar-collapse justify-content-end">
             <div class="card-header">
                 <ul class="navbar-nav ">
-                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'index' %}">View My Plants</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'plants_create' %}">Add a Plant</a></li>
@@ -34,7 +47,7 @@
     <main>
         {% block content %}
 
-
+        
         {% endblock %}
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
