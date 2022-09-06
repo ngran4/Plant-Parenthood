@@ -8,10 +8,13 @@ class Fertilizer(models.Model):
     source_type = models.CharField(max_length=100)
     nutrient_balance = models.CharField(
         max_length=8,
-        help_text= "Enter as XX:XX:XX or XX-XX-XX")
+        help_text= "Enter as XX:XX:XX or XX-XX-XX"
+        )
     rec_freq = models.CharField(
+        'Recommended Frequency',
         max_length=100,
-        help_text= "Check packaging instructions")
+        help_text= "Check packaging instructions"
+        )
 
     def get_absolute_url(self):
         return reverse('fertilizers_detail', kwargs={'pk': self.id})
@@ -37,11 +40,13 @@ class Plant(models.Model):
     care_difficulty = models.CharField(
         max_length=1,
         choices=DIFFICULTIES,
-        default=DIFFICULTIES[0][0])
+        default=DIFFICULTIES[0][0]
+        )
     light_requirement = models.CharField(
         max_length=1,
         choices=LIGHT,
-        default=LIGHT[1][0])
+        default=LIGHT[1][0]
+        )
     water_interval = models.IntegerField(
         help_text= "(Enter days between waterings)"
     )
@@ -60,3 +65,9 @@ class Watering(models.Model):
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Photo for plant_id: {self.plant_id} at {self.url}.'
