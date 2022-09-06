@@ -2,8 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-
-
+class Fertilizer(models.Model):
+    brand_name = models.CharField(max_length=100)
+    source_type = models.CharField(max_length=100)
+    nutrient_balance = models.CharField(max_length=8)
+    rec_freq = models.CharField(max_length=100)
 
 DIFFICULTIES = (
     ('E', 'Easy'),
@@ -32,7 +35,15 @@ class Plant(models.Model):
         choices=LIGHT,
         default=LIGHT[1][0])
     water_interval = models.IntegerField()
+    fertilizers = models.ManyToManyField(Fertilizer)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return f'{self.common_name}'
+
+class Watering(models.Model): 
+    date = models.DateField()
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+
+
