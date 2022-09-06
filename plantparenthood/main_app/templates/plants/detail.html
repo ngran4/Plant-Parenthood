@@ -35,5 +35,21 @@
   </table>
 </div>
 
+<div>
+  <h3>{{ plant.nickname }}'s Fertilizer</h3>
+  {% if plant.fertilizers.count %}
+    {% for fertilizer in plant.fertilizers.all %}
+    <div>
+      <span>{{ fertilizer.brand_name }}</span></a>
+      <p>Source Type: {{ fertilizer.source_type }}</p>
+      <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
+      <p>Reccommended Frequency: {{ fertilizer.rec_freq }}</p>
+    </div>
+    {% endfor %}
+  {% else %}
+    <h5>No fertilizers</h5>
+  {% endif %}
+</div>
+
 
 {% endblock %}

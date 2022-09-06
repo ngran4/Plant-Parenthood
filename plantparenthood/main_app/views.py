@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import WateringForm
 
-from .models import Plant
+from .models import Plant, Fertilizer
 
 from django.http import HttpResponse
 # Create your views here.
@@ -31,8 +31,9 @@ def plants_index(request):
 @login_required
 def plants_detail(request, plant_id):
   plant = Plant.objects.get(id=plant_id)
+  available_fertilizers = Fertilizer.objects.exclude(id__in = plant.fertilizers.all().values_list('id'))
   watering_form = WateringForm()
-  return render(request, 'plants/detail.html', {'plant': plant, 'watering_form': watering_form})
+  return render(request, 'plants/detail.html', {'plant': plant, 'watering_form': watering_form, 'fertilizers': available_fertilizers})
 
 @login_required
 def add_watering(request, plant_id):
