@@ -110,6 +110,7 @@ class FertilizerDelete(DeleteView):
   model = Fertilizer
   success_url = "/fertilizers/"
 
+@login_required
 def add_photo(request, plant_id):
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
