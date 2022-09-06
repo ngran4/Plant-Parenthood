@@ -8,6 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .forms import WateringForm
+
 from .models import Plant
 
 from django.http import HttpResponse
@@ -29,7 +31,17 @@ def plants_index(request):
 @login_required
 def plants_detail(request, plant_id):
   plant = Plant.objects.get(id=plant_id)
-  return render(request, 'plants/detail.html', {'plant': plant})
+  watering_form = WateringForm()
+  return render(request, 'plants/detail.html', {'plant': plant, 'watering_form': watering_form})
+
+@login_required
+def add_watering(request, plant_id):
+    form = WateringForm(request.POST)
+    if form.is_valid():
+        new_watering = form.save(commit=False)
+        new_watering.plant_id = plant_id
+        new_watering.save()
+    return redirect('detail', plant_id=plant_id)
 
 class PlantCreate(LoginRequiredMixin, CreateView):
     model = Plant
