@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Fertilizer List</h1>
+
+{% for fertilizer in fertilizer_list %}
+  <a href="{% url 'fertilizers_detail' fertilizer.id %}">
+    <div>
+        <div>
+            <span>{{ fertilizer.brand_name }}</span>
+            <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

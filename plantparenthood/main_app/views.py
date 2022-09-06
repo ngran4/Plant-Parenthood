@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -76,3 +77,24 @@ def signup(request):
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form, 'error_message': error_message})
+
+
+class FertilizerList(ListView):
+  model = Fertilizer
+
+class FertilizerDetail(DetailView):
+  model = Fertilizer
+
+class FertilizerCreate(CreateView):
+  model = Fertilizer
+  fields = "__all__"
+  success_url = "/fertilizers/"
+
+class FertilizerUpdate(UpdateView):
+  model = Fertilizer
+  fields = "__all__"
+  success_url = "/fertilizers/"
+
+class FertilizerDelete(DeleteView):
+  model = Fertilizer
+  success_url = "/fertilizers/"
