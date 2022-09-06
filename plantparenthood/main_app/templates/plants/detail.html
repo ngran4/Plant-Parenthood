@@ -45,6 +45,12 @@
       <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
       <p>Recommended Frequency: {{ fertilizer.rec_freq }}</p>
     </div>
+    <div>
+      <form action="{% url 'remove_fertilizer' plant.id fertilizer.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Remove Fertilizer</button>
+      </form>
+    </div>
     {% endfor %}
   {% else %}
     <h5>No fertilizers</h5>
