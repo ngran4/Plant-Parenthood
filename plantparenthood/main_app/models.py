@@ -34,7 +34,9 @@ class Plant(models.Model):
         max_length=1,
         choices=LIGHT,
         default=LIGHT[1][0])
-    water_interval = models.IntegerField()
+    water_interval = models.IntegerField(
+        help_text= "(Enter days between waterings)"
+    )
     fertilizers = models.ManyToManyField(Fertilizer)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
