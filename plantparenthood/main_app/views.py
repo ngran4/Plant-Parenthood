@@ -11,12 +11,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import WateringForm
 
-from .models import Plant, Fertilizer
+from .models import Plant, Fertilizer, Photo
 
-from django.http import HttpResponse
+import uuid
+import boto3
+
+S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+BUCKET = 'plantparenthood22'
+
 # Create your views here.
-
-
 def home(request):
     return render(request, 'home.html')
 
@@ -106,3 +109,17 @@ class FertilizerUpdate(UpdateView):
 class FertilizerDelete(DeleteView):
   model = Fertilizer
   success_url = "/fertilizers/"
+
+def add_photo(request, plant_id):
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      Photo.objects.create(url=url, plant_id=plant_id)
+    except:
+      print('An error occured uploading file to S3')
+  return redirect('detail', plant_id=plant_id)

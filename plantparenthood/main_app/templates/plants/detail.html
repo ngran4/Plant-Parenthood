@@ -15,7 +15,20 @@
     <a href="{% url 'plants_update' plant.id %}">Edit</a>
     <a href="{% url 'plants_delete' plant.id %}">Delete</a>
   </div>
+  {% for photo in plant.photo_set.all %}
+  <img src="{{photo.url}}">
+  {% empty %}
+    <div >No Photos Uploaded</div>
+  {% endfor %}
+  <form action="{% url 'add_photo' plant.id %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <input type="file" name="photo-file">
+    <br><br>
+    <input type="submit" value="Upload Photo">
+  </form>
 </div>
+
+
 <div>
   <form action="{% url 'add_watering' plant.id %}" method="POST">
     {% csrf_token %}
