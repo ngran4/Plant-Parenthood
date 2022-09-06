@@ -12,6 +12,8 @@ urlpatterns = [
   path('plants/<int:plant_id>/', views.plants_detail, name="detail"),
   # Watering stuff
   path('plants/<int:plant_id>/add_watering', views.add_watering, name='add_watering'),
+  # Photos
+  path('plants/<int:plant_id>/plant_photo/', views.add_photo, name='add_photo'),
   # Fertilizer
   path('fertilizers/', views.FertilizerList.as_view(), name="fertilizers_index"),
   path('fertilizers/<int:pk>/', views.FertilizerDetail.as_view(), name="fertilizers_detail"),
