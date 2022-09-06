@@ -20,6 +20,8 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'fertilizers_create' %}">Add Fertilizer</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'fertilizers_index' %}">View Fertilizers</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'index' %}">View My Plants</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'plants_create' %}">Add a Plant</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'logout' %}">Log Out</a></li>
