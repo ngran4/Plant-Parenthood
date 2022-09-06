@@ -16,6 +16,24 @@
     <a href="{% url 'plants_delete' plant.id %}">Delete</a>
   </div>
 </div>
+<div>
+  <form action="{% url 'add_watering' plant.id %}" method="POST">
+    {% csrf_token %}
+    {{watering_form.as_p}}
+    <input type="submit" value="Add Watering">
+  </form>
+  <table>
+    <thead>
+      <tr><th>Date</th></tr>
+    </thead>
+    <tbody>
+      {% for watering in plant.watering_set.all %}
+      <tr><td>{{watering.date}}</td></tr>
+      {% endfor %}
+    </tbody>
+      
+  </table>
+</div>
 
 
 {% endblock %}
