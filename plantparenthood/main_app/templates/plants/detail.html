@@ -43,13 +43,37 @@
       <span>{{ fertilizer.brand_name }}</span></a>
       <p>Source Type: {{ fertilizer.source_type }}</p>
       <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
-      <p>Reccommended Frequency: {{ fertilizer.rec_freq }}</p>
+      <p>Recommended Frequency: {{ fertilizer.rec_freq }}</p>
     </div>
     {% endfor %}
   {% else %}
     <h5>No fertilizers</h5>
   {% endif %}
 </div>
+
+<div>
+  <h3>Available Fertilizers</h3>
+  {% if fertilizers.count %}
+    {% for fertilizer in fertilizers.all %}
+    <div>
+      <span>{{ fertilizer.brand_name }}</span></a>
+      <p>Source Type: {{ fertilizer.source_type }}</p>
+      <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
+      <p>Recommended Frequency: {{ fertilizer.rec_freq }}</p>
+    </div>
+    <div>
+      <form action="{% url 'assoc_fertilizer' plant.id fertilizer.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    {% endfor %}
+  {% else %}
+    <h5>No More Fertilizers To Add</h5>
+  {% endif %}
+</div>
+
+
 
 
 {% endblock %}

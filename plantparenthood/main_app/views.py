@@ -37,6 +37,13 @@ def plants_detail(request, plant_id):
   return render(request, 'plants/detail.html', {'plant': plant, 'watering_form': watering_form, 'fertilizers': available_fertilizers})
 
 @login_required
+def assoc_fertilizer(request, plant_id, fertilizer_id):
+    plant = Plant.objects.get(id=plant_id)
+    plant.fertilizers.add(fertilizer_id)
+    return redirect('detail', plant_id=plant_id)
+
+
+@login_required
 def add_watering(request, plant_id):
     form = WateringForm(request.POST)
     if form.is_valid():

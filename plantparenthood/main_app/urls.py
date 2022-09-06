@@ -18,6 +18,8 @@ urlpatterns = [
   path('fertilizers/create/', views.FertilizerCreate.as_view(), name="fertilizers_create"),
   path('fertilizers/<int:pk>/update/', views.FertilizerUpdate.as_view(), name="fertilizers_update"),
   path('fertilizers/<int:pk>/delete/', views.FertilizerDelete.as_view(), name="fertilizers_delete"),
+  path('plants/<int:plant_id>/assoc_fertilizer/<int:fertilizer_id>/', views.assoc_fertilizer, name='assoc_fertilizer'),
+  
   # Account stuff
   path('accounts/signup/', views.signup, name='signup'),
 ]
