@@ -42,6 +42,11 @@ def assoc_fertilizer(request, plant_id, fertilizer_id):
     plant.fertilizers.add(fertilizer_id)
     return redirect('detail', plant_id=plant_id)
 
+@login_required
+def remove_fertilizer(request, plant_id, fertilizer_id):
+    plant = Plant.objects.get(id=plant_id)
+    plant.fertilizers.remove(fertilizer_id)
+    return redirect('detail', plant_id=plant_id)
 
 @login_required
 def add_watering(request, plant_id):
@@ -55,7 +60,6 @@ def add_watering(request, plant_id):
 class PlantCreate(LoginRequiredMixin, CreateView):
     model = Plant
     fields = ['nickname', 'common_name', 'scientific_name', 'care_difficulty', 'light_requirement', 'water_interval']
-    success_url = '/plants/'
 
     def form_valid(self, form):
         form.instance.user = self.request.user  
@@ -65,7 +69,6 @@ class PlantCreate(LoginRequiredMixin, CreateView):
 class PlantUpdate(LoginRequiredMixin, UpdateView):
   model = Plant
   fields = ['nickname', 'common_name', 'scientific_name', 'care_difficulty', 'light_requirement', 'water_interval']
-  success_url = '/plants/'
 
 class PlantDelete(LoginRequiredMixin, DeleteView):
   model = Plant
@@ -95,12 +98,10 @@ class FertilizerDetail(DetailView):
 class FertilizerCreate(CreateView):
   model = Fertilizer
   fields = "__all__"
-  success_url = "/fertilizers/"
 
 class FertilizerUpdate(UpdateView):
   model = Fertilizer
   fields = "__all__"
-  success_url = "/fertilizers/"
 
 class FertilizerDelete(DeleteView):
   model = Fertilizer
