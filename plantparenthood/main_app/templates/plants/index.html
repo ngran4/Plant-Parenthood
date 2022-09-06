@@ -13,9 +13,9 @@
     <span>{{ plant.nickname }}</span></a>
     <p>Common Name: {{ plant.common_name }}</p>
     <p>Scientific Name: {{ plant.scientific_name }}</p>
-    <p>Care Difficulty: {{ plant.care_difficulty }} </p>
-    <p>Light Requirement: {{ plant.light_requirement }}</p>
-    <p>Water Interval: {{ plant.water_interval }}</p>
+    <p>Care Difficulty: {{ plant.get_care_difficulty_display }} </p>
+    <p>Light Requirement: {{ plant.get_light_requirement_display }}</p>
+    <p>Water Interval: Every {{ plant.water_interval }} days</p>
   </div>
 </div>
 {% endfor %}
