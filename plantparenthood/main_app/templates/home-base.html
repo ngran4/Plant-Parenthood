@@ -14,19 +14,38 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-success">
         <div class="collapse navbar-collapse justify-content-end">
             <div class="card-header">
-                <ul class="navbar-nav ">
+                <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'index' %}">View My Plants</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'plants_create' %}">Add a Plant</a></li>
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Plants</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="{% url 'index' %}">My Plants</a></li>
+                            <li><a class="dropdown-item" href="{% url 'plants_create' %}">Add a Plant</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Supplementals</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="{% url 'fertilizers_index' %}">View Fertilizers</a></li>
+                            <li><a class="dropdown-item" href="{% url 'fertilizers_create' %}">Add Fertilizer</a></li>
+                        </ul>
+                    </div>
+
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'logout' %}">Log Out</a></li>
+
                     {% else %}
+
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'signup' %}">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="true" href="{% url 'login' %}">Log In</a></li>
+
                     {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+
     <main>
         {% block content %}
 

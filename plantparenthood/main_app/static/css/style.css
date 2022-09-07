@@ -1,27 +1,29 @@
+.title {
+    position: absolute;
+    bottom: -30px;
+    left: 0px;
+}
 .base-header-plant {
     display: flex;
     flex-direction: row;
     align-content: flex-end;
-    position: absolute;
-    top: 425px;
+    margin-bottom: -75px;
     font-size: 150px;
 }
 .base-header-parenthood {
     display: flex;
     flex-direction: row;
     align-content: flex-end;
-    position: absolute;
-    top: 525px;
     font-size: 150px;
 }
 .about{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     position: absolute;
-    bottom: 100px;
-    left: 300px;
+    top: 60px;
+    right: 10px;
+    resize: none;
 }
 .wrapper{
     display: flex;
