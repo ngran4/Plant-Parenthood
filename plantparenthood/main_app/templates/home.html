@@ -1,19 +1,52 @@
 {% extends 'home-base.html' %}
 
 {% block content %}
-<div class="title">
-<h1 class="base-header-plant">Plant</h1>
-<h1 class="base-header-parenthood">Parenthood</h1>
+<div class="main-page">
+<div class="all">
+    <div class="title">
+        <h1 class="base-header-plant">Plant</h1>
+        <h1 class="base-header-parenthood">Parenthood</h1>
+    </div>
+
+    <div class="animation">
+        <div class="about">
+            <div class="wrapper">
+                <div class="static-txt">Plant care, made</div>
+                <ul class ="dynamic-txts">
+                    <li><span>easy.</span></li>
+                    <li><span>simple.</span></li>
+                    <li><span>accessible.</span></li>
+                    <li><span>fun.</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-<section class="about">
-<div class="wrapper">
-    <div class="static-txt">Plant care, made</div>
-    <ul class ="dynamic-txts">
-        <li><span>easy.</span></li>
-        <li><span>simple.</span></li>
-        <li><span>accessible.</span></li>
-        <li><span>fun.</span></li>
-    </ul>
+
+<div class="directory">
+
+    <div class="login">
+        <a href="{% url 'login' %}">
+            <button class="button-50" role="button">Log-In</button>
+        <a>
+    </div>
+    
+
+    <div class="signup">
+        <a href="{% url 'signup' %}">
+            <button class="button-50" role="button">Sign Up</button>
+        </a>
+    </div>
+
 </div>
-</section>
+
+<div class="monstera-one">
+    <img src="https://i.imgur.com/vCVknyq.png">
+</div>
+
+<div class="monstera-two">
+    <img src="https://i.imgur.com/vCVknyq.png">
+</div>
+
+</div>
 {% endblock %}
