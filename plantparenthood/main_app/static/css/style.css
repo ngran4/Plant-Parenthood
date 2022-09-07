@@ -4,6 +4,7 @@
 body {
     height: 100vh;
     margin: 0;
+    background-color: #EFEDE0;
 }
 .title {
     position: absolute;
@@ -72,7 +73,7 @@ body {
     left: 0;
     height: 110%;
     width: 100%;
-    background: white;
+    background: #EFEDE0;
     border-left: 2px solid green;
     animation: typing 3s steps(10) infinite;
 }
