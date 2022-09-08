@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div class="text-center">
 <h1>My Plants</h1>
-
 
 {% if plants.count %}
 <div class="list-container">
@@ -13,14 +11,10 @@
       {% for photo in plant.photo_set.all %}
         <img src="{{photo.url}}" class="image" alt="Plant Photo">
       {% empty %}
-      <img src="https://imgur.com/16wehxA.png" class="image" alt="No Photo Uploaded">
+        <img src="https://imgur.com/16wehxA.png" class="image" alt="No Photo Uploaded">
       {% endfor %}
       <h6 class="fw-semibold">{{ plant.nickname }}</h6>
       <p>Common Name: {{ plant.common_name }}</p>
-      <p>Scientific Name: {{ plant.scientific_name }}</p>
-      <p>Care Difficulty: {{ plant.get_care_difficulty_display }} </p>
-      <p>Light Requirement: {{ plant.get_light_requirement_display }}</p>
-      <p>Water Interval: Every {{ plant.water_interval }} days</p>
     </div>
   </a>
 {% endfor %}
