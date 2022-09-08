@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Log In</h1>
-<form method="post" action="{% url 'login' %}">
+<h1 class="login-header">Log In</h1>
+<form class="login-form" method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="login">
     <input type="hidden" name="next" value="{{ next }}">
 </form>
+
+<div class="monstera-three">
+    <img src="https://i.imgur.com/vCVknyq.png">
+</div>
+
 {% endblock %}
