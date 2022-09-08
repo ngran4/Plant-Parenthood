@@ -160,41 +160,6 @@ body {
     z-index: 1;
 }
 
-/* About Page */
-.row {
-    align-items: center;
-}
-
-h3 {
-    margin-bottom: 100px auto;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-.green-text {
-    color: green
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px 5px #bfd6cb;
-    padding: 25px;
-    background-color: #eaf1ea;
-    align-items: center;
-}
-
-.about-container{
-    margin:20px;
-    padding:15px
-}
-table td,th {
-    padding: 5px;
-    text-align: left;
-}
-
 /* Log-In Page */
 
 .monstera-three {
@@ -248,3 +213,71 @@ table td,th {
     top: 120px;
     left: 500px;
 } */
+
+/* about page */
+.row {
+    align-items: center;
+}
+
+/* forms */
+.green-text {
+    color: green
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px #bfd6cb;
+    padding: 25px;
+    background-color: #eaf1ea;
+    align-items: center;
+    color: black;
+}
+
+table td,
+th {
+    padding: 5px;
+    text-align: left;
+}
+
+/* index */
+.list-container {
+    margin: 20px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.list-container>a {
+    text-decoration: none;
+    color: black
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px #bfd6cb;
+    margin: 10px;
+    width: 400px;
+    padding: 10px;
+    background-color: #eaf1ea;
+}
+
+.list:hover {
+    border: 5px solid rgba(72, 151, 85, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(36, 124, 63, 0.596);
+}
+
+.image {
+    border-radius: 15px;
+    width: 150px;
+    height: 150px;
+}

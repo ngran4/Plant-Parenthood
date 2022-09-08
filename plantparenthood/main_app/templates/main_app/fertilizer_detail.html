@@ -1,22 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Fertilizer Details</h1>
-
-<div>
-  <div>
+<div class="text-center">
+  <h1>Fertilizer Details</h1>
+  <div class="container">
+    <h6 class="fw-semibold">{{ fertilizer.brand_name }}</h6>
+    <p>Source Type: {{ fertilizer.source_type }}</p>
+    <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
+    <p>Reccommended Frequency: {{ fertilizer.rec_freq }}</p>
     <div>
-      <div>
-        <span>{{ fertilizer.brand_name }}</span>
-        <p>Source Type: {{ fertilizer.source_type }}</p>
-        <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
-        <p>Reccommended Frequency: {{ fertilizer.rec_freq }}</p>
-      </div>
-      <div>
-        <a href="{% url 'fertilizers_update' fertilizer.id %}">Edit</a>
-        <a href="{% url 'fertilizers_delete' fertilizer.id %}">Delete</a>
-      </div>
-    </div>
+      <a href="{% url 'fertilizers_update' fertilizer.id %}">Edit</a>
+      <a href="{% url 'fertilizers_delete' fertilizer.id %}">Delete</a>
+    <div>
   </div>
 </div>
 {% endblock %}

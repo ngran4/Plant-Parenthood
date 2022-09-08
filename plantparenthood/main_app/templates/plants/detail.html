@@ -4,7 +4,7 @@
 <h1>Plant Details</h1>
 <div>
   <div>
-    <span>{{ plant.nickname }}</span>
+    <h6 class="fw-semibold">{{ plant.nickname }}</h6>
     <p>Common Name: {{ plant.common_name }}</p>
     <p>Scientific Name: {{ plant.scientific_name }}</p>
     <p>Care Difficulty: {{ plant.get_care_difficulty_display }} </p>
@@ -44,7 +44,7 @@
       <tr><td>{{watering.date}}</td></tr>
       {% endfor %}
     </tbody>
-      
+
   </table>
 </div>
 
@@ -91,8 +91,5 @@
     <h5>No More Fertilizers To Add</h5>
   {% endif %}
 </div>
-
-
-
 
 {% endblock %}
