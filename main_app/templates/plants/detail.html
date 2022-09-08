@@ -1,35 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Plant Details</h1>
+<h1 class="text-center">Plant Details</h1>
 <div>
-  <div>
+  <div class="container">
+
+    {% for photo in plant.photo_set.all %}
+      <img src="{{photo.url}}" class="detail-image" alt="Plant Photo">
+    {% empty %}
+      <img src="https://imgur.com/16wehxA.png" class="detail-image" alt="No Photo Uploaded">
+    {% endfor %}
+    <form action="{% url 'add_photo' plant.id %}" enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <input type="file" name="photo-file"><br>
+      <input type="submit" value="Upload Photo">
+    </form>
     <h6 class="fw-semibold">{{ plant.nickname }}</h6>
     <p>Common Name: {{ plant.common_name }}</p>
     <p>Scientific Name: {{ plant.scientific_name }}</p>
     <p>Care Difficulty: {{ plant.get_care_difficulty_display }} </p>
     <p>Light Requirement: {{ plant.get_light_requirement_display }} </p>
     <p>Water Interval: Every {{ plant.water_interval }} days</p>
-  </div>
-  <div>
-    <a href="{% url 'plants_update' plant.id %}">Edit</a>
-    <a href="{% url 'plants_delete' plant.id %}">Delete</a>
-  </div>
-  {% for photo in plant.photo_set.all %}
-  <img src="{{photo.url}}">
-  {% empty %}
-    <div >No Photos Uploaded</div>
-  {% endfor %}
-  <form action="{% url 'add_photo' plant.id %}" enctype="multipart/form-data" method="POST">
-    {% csrf_token %}
-    <input type="file" name="photo-file">
-    <br><br>
-    <input type="submit" value="Upload Photo">
-  </form>
-</div>
-
-
-<div>
+    <div>
+      <a href="{% url 'plants_update' plant.id %}">Edit</a>
+      <a href="{% url 'plants_delete' plant.id %}">Delete</a>
+    </div>
+  <br>
+  <section class="watering">
   <form action="{% url 'add_watering' plant.id %}" method="POST">
     {% csrf_token %}
     {{watering_form.as_p}}
@@ -46,8 +43,10 @@
     </tbody>
 
   </table>
+</section>
 </div>
 
+<div class="fertilizer-container">
 <div>
   <h3>{{ plant.nickname }}'s Fertilizer</h3>
   {% if plant.fertilizers.count %}
@@ -92,4 +91,13 @@
   {% endif %}
 </div>
 
+</div>
 {% endblock %}
+
+
+
+
+
+
+
+
