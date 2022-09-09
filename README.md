@@ -95,9 +95,9 @@ The technologies that made this application possible are:
 15. STUMP Plants
 
 ## Planning
-Our Slide Deck:
+- Our Slide Deck:
 [Google Slides](https://docs.google.com/presentation/d/12ndgW29IFBd2bex5d_9pnJc-HWLKeUvQxf2HTQKWxsE/edit?usp=sharing)
-Our [Trello](https://trello.com/invite/b/hWHbynJc/d939743b54b4c05d96285cf264bf5c40/plant-parenthood)
+- Our [Trello](https://trello.com/invite/b/hWHbynJc/d939743b54b4c05d96285cf264bf5c40/plant-parenthood)
 
 ## Icebox Features
 
