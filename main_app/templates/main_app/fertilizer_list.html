@@ -6,7 +6,7 @@
   {% for fertilizer in fertilizer_list %}
     <a href="{% url 'fertilizers_detail' fertilizer.id %}">
       <div class="list">
-        <h6 class="fw-semibold">{{ fertilizer.brand_name }}</h6>
+        <h5 class="green-text">{{ fertilizer.brand_name }}</h5>
         <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
       </div>
     </a>
