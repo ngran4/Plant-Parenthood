@@ -2,50 +2,55 @@
 {% block content %}
 
 <h1 class="text-center">Plant Details</h1>
-<div>
-  <div class="detail-container">
-    <h2 class="green-text">{{ plant.nickname }}</h2>
-    <div class="plant-info">
-      {% for photo in plant.photo_set.all %}
-        <img src="{{photo.url}}" class="detail-image" alt="Plant Photo">
-      {% empty %}
-        <img src="https://imgur.com/16wehxA.png" class="detail-image" alt="No Photo Uploaded">
-      {% endfor %}
-      <form action="{% url 'add_photo' plant.id %}" enctype="multipart/form-data" method="POST">
-        {% csrf_token %}
-        <input type="file" name="photo-file"><br>
-        <input type="submit" value="Upload Photo">
-      </form>
+<div class="detail-container">
+  <h2 class="green-text">{{ plant.nickname }}</h2>
+  <div class="plant-info">
+    {% for photo in plant.photo_set.all %}
+      <img src="{{photo.url}}" class="detail-image" alt="Plant Photo">
+    {% empty %}
+      <img src="https://imgur.com/16wehxA.png" class="detail-image" alt="No Photo Uploaded">
+    {% endfor %}
+    <form action="{% url 'add_photo' plant.id %}" enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <input type="file" name="photo-file"><br>
+      <input type="submit" value="Upload Photo">
+    </form>
+  </div>
+  <div class="plant-info">
+    <div class="icon1">
+      <i class="fa-regular fa-pen-to-square fa-bounce fa-xl icon"></i>
+    </div><br>
+    <p>Common Name: {{ plant.common_name }}</p>
+    <p>Scientific Name: {{ plant.scientific_name }}</p>
+    <p>Care Difficulty: {{ plant.get_care_difficulty_display }} </p>
+    <p>Light Requirement: {{ plant.get_light_requirement_display }} </p>
+    <p>Water Interval: Every {{ plant.water_interval }} days</p>
+    <div>
+      <a href="{% url 'plants_update' plant.id %}" class="modify">Edit</a>
+      <a href="{% url 'plants_delete' plant.id %}" class="modify">Delete</a>
     </div>
-    <div class="plant-info">
-      <p>Common Name: {{ plant.common_name }}</p>
-      <p>Scientific Name: {{ plant.scientific_name }}</p>
-      <p>Care Difficulty: {{ plant.get_care_difficulty_display }} </p>
-      <p>Light Requirement: {{ plant.get_light_requirement_display }} </p>
-      <p>Water Interval: Every {{ plant.water_interval }} days</p>
-      <div>
-        <a href="{% url 'plants_update' plant.id %}" class="modify">Edit</a>
-        <a href="{% url 'plants_delete' plant.id %}" class="modify">Delete</a>
-      </div>
-    </div>
-    <div class="plant-info">
-      <form action="{% url 'add_watering' plant.id %}" method="POST">
-        {% csrf_token %}
-        {{watering_form.as_p}}
-        <input type="submit" value="Add Watering">
-      </form>
-      <br>
-      <table>
-        <thead>
-          <tr><th>Watering Date</th></tr>
-        </thead>
-        <tbody>
-          {% for watering in plant.watering_set.all %}
+  </div>
+  <div class="plant-info">
+    <div class="icon2">
+      <i class="fa-solid fa-droplet fa-bounce fa-xl"></i>
+    </div><br>
+    <form action="{% url 'add_watering' plant.id %}" method="POST">
+      {% csrf_token %}
+      {{watering_form.as_p}}
+      <input type="submit" value="Add Watering">
+    </form>
+    <br>
+    <table>
+      <thead>
+        <tr><th><span class="text-decoration-underline">Watering Date</span></th></tr>
+      </thead>
+      <tbody>
+        {% for watering in plant.watering_set.all %}
           <tr><td>{{watering.date}}</td></tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="detail-container">
@@ -80,7 +85,7 @@
       <p>Recommended Frequency: {{ fertilizer.rec_freq }}</p>
       <form action="{% url 'assoc_fertilizer' plant.id fertilizer.id %}" method="POST">
         {% csrf_token %}
-        <button type="submit">Add</button>
+        <button type="submit">Add Fertilizer</button>
       </form>
     </div>
     {% endfor %}
@@ -88,24 +93,7 @@
     <h5>No More Fertilizers To Add</h5>
   {% endif %}
   </div>
-
 </div>
 <br>
-<script>
-	const dateEl = document.getElementById('id_date');
-	M.Datepicker.init(dateEl, {
-		format: 'yyyy-mm-dd',
-		defaultDate: new Date(),
-		setDefaultDate: true,
-		autoClose: true
-	})
 
-</script>
 {% endblock %}
-
-
-
-
-
-
-
