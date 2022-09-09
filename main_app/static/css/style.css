@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     height: 100vh;
     margin: 0;
@@ -14,6 +15,7 @@ body {
     left: 0px;
     z-index: 10;
 }
+
 .base-header-plant {
     display: flex;
     flex-direction: row;
@@ -21,13 +23,15 @@ body {
     margin-bottom: -75px;
     font-size: 150px;
 }
+
 .base-header-parenthood {
     display: flex;
     flex-direction: row;
     align-content: flex-end;
     font-size: 150px;
 }
-.about{
+
+.about {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,20 +41,24 @@ body {
     resize: none;
     z-index: 10;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
 }
-.wrapper .static-txt{
+
+.wrapper .static-txt {
     font-size: 60px;
     font-weight: 400;
 }
-.wrapper .dynamic-txts{
+
+.wrapper .dynamic-txts {
     margin-left: 15px;
     height: 90px;
     line-height: 90px;
     overflow: hidden;
 }
-.dynamic-txts li{
+
+.dynamic-txts li {
     list-style: none;
     color: green;
     font-size: 60px;
@@ -59,17 +67,20 @@ body {
     top: 0;
     animation: slide 12s steps(4) infinite;
 }
+
 @keyframes slide {
-    100%{
-    top: -360px;
+    100% {
+        top: -360px;
     }
 }
-.dynamic-txts li span{
+
+.dynamic-txts li span {
     position: relative;
     margin: 0 0 0 -30px;
     line-height: 90px;
 }
-.dynamic-txts li span::after{
+
+.dynamic-txts li span::after {
     content: "";
     position: absolute;
     left: 0;
@@ -79,13 +90,17 @@ body {
     border-left: 2px solid green;
     animation: typing 3s steps(10) infinite;
 }
+
 @keyframes typing {
-    40%, 60%{
-    left: 100%;
+
+    40%,
+    60% {
+        left: 100%;
     }
 }
+
 /* Button CSS
-*/ 
+*/
 .button-50 {
     display: block;
     width: 100%;
@@ -94,12 +109,12 @@ body {
     background-image: none;
     border: 1px solid #000;
     border-radius: 4px;
-    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+    font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 25px;
@@ -134,18 +149,21 @@ body {
 
 @media (min-width: 768px) {
     .button-50 {
-    padding: 12px 50px;
+        padding: 12px 50px;
     }
 }
-.directory { 
+
+.directory {
     position: absolute;
     top: 135px;
     right: 80px;
     z-index: 10;
 }
+
 .login {
     margin-bottom: 30px;
 }
+
 .monstera-one {
     transform: rotate(-0.65turn);
     position: fixed;
@@ -153,6 +171,7 @@ body {
     left: -130px;
     z-index: 1;
 }
+
 .monstera-two {
     transform: rotate(0.85turn);
     position: fixed;
@@ -170,12 +189,14 @@ body {
     right: -130px;
     z-index: 1;
 }
+
 .login-form {
     z-index: 10;
     position: relative;
     top: 150px;
     font-size: 20px;
 }
+
 .login-header {
     z-index: 10;
     position: relative;
@@ -191,11 +212,13 @@ body {
     top: 100px;
     font-size: 20px;
 }
+
 .signup-header {
     z-index: 10;
     position: relative;
     top: 50px;
 }
+
 .monstera-four {
     transform: rotate(0.75turn);
     position: fixed;
@@ -203,15 +226,6 @@ body {
     right: -130px;
     z-index: 1;
 }
-
-/* My Plants Page */ 
-
-/* .my-plants-header {
-    z-index: 10;
-    position: absolute;
-    top: 120px;
-    left: 500px;
-} */
 
 /* about page */
 .row {
@@ -223,12 +237,25 @@ body {
     color: green
 }
 
+.modify {
+    color: white;
+    border-radius: 6px;
+    background-color: rgba(84, 142, 93, 0.5);
+    padding: 5px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.modify:hover {
+    color: #187B4D
+}
+
 .container {
     display: flex;
     flex-direction: column;
     font-size: 16px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 5px #bfd6cb;
+    box-shadow: 0px 0px 5px 5px #abc5b6;
     padding: 25px;
     background-color: #eaf1ea;
     align-items: center;
@@ -262,7 +289,7 @@ th {
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px 5px #bfd6cb;
+    box-shadow: 0px 0px 5px 5px #abc5b6;
     margin: 10px;
     width: 400px;
     padding: 10px;
@@ -270,9 +297,10 @@ th {
 }
 
 .list:hover {
-    border: 5px solid rgba(72, 151, 85, 0.8);
+    border: 5px solid rgba(​ 107, 155, 126, 0.8);
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 5px rgba(36, 124, 63, 0.596);
+    box-shadow: 0px 0px 5px 5px #6B9B7E;
+    /* box-shadow: 0px 0px 5px 5px rgba(36, 124, 63, 0.596); */
 }
 
 .image {
@@ -288,7 +316,7 @@ th {
     height: 300px;
 }
 
-.fertilizer-container {
+.detail-container {
     margin: 20px;
     padding: 15px;
     display: flex;
@@ -296,5 +324,34 @@ th {
     justify-content: space-around;
     background-color: #eaf1ea;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 5px #bfd6cb;
+    box-shadow: 0px 0px 5px 5px #abc5b6;
+}
+
+.fertilizer-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid #DEB887;
+    box-shadow: 2px 2px #DEB887;
+}
+
+.plant-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #DEB887;
+    box-shadow: 2px 2px #DEB887;
+    border-radius: 15px;
+    width: 320px;
+    height: 360px;
+    background-color: #e7dfd4;
 }

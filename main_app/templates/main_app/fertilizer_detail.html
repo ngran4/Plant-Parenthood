@@ -3,13 +3,13 @@
 <div class="text-center">
   <h1>Fertilizer Details</h1>
   <div class="container">
-    <h6 class="fw-semibold">{{ fertilizer.brand_name }}</h6>
+    <h2 class="green-text">{{ fertilizer.brand_name }}</h2>
     <p>Source Type: {{ fertilizer.source_type }}</p>
     <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
     <p>Reccommended Frequency: {{ fertilizer.rec_freq }}</p>
     <div>
-      <a href="{% url 'fertilizers_update' fertilizer.id %}">Edit</a>
-      <a href="{% url 'fertilizers_delete' fertilizer.id %}">Delete</a>
+      <a href="{% url 'fertilizers_update' fertilizer.id %}" class="modify">Edit</a>
+      <a href="{% url 'fertilizers_delete' fertilizer.id %}" class="modify">Delete</a>
     <div>
   </div>
 </div>
