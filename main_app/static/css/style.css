@@ -351,7 +351,15 @@ th {
     border: 1px solid #DEB887;
     box-shadow: 2px 2px #DEB887;
     border-radius: 15px;
-    width: 320px;
-    height: 360px;
+    width: 350px;
+    height: 400px;
     background-color: #e7dfd4;
+}
+
+.icon1 {
+    color:slategray
+}
+
+.icon2{
+    color:rgb(69, 148, 185)
 }
