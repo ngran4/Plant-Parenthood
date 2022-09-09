@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 # Create your models here.
 
+# -------------------- FERTILIZER MODEL  -------------------- #
 class Fertilizer(models.Model):
   brand_name = models.CharField(max_length=100)
   source_type = models.CharField(max_length=100)
@@ -19,6 +20,8 @@ class Fertilizer(models.Model):
   def get_absolute_url(self):
     return reverse('fertilizers_detail', kwargs={'pk': self.id})
 
+# -------------------- PLANT -------------------- #
+
 DIFFICULTIES = (
   ('E', 'Easy'),
   ('M', 'Medium'),
@@ -30,8 +33,6 @@ LIGHT = (
   ('I', 'Bright Indirect'),
   ('D', 'Direct')
 )
-
-
 
 class Plant(models.Model):
   nickname = models.CharField(max_length=100)
@@ -63,11 +64,13 @@ class Plant(models.Model):
   def __str__(self):
     return f'{self.common_name}'
 
+# -------------------- WATERING -------------------- #
+
 class Watering(models.Model): 
   date = models.DateField()
   plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
-
+# -------------------- PHOTO -------------------- #
 class Photo(models.Model):
   url = models.CharField(max_length=200)
   plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
