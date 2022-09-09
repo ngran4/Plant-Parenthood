@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
   {% if object %}
     <h1 class="text-center">Edit <span class="green-text">{{ object.brand_name }}</span></h1>
   {% else %}
@@ -13,4 +13,5 @@
       <input type="submit" value="Submit" />
     </form>
   </div>
+
 {% endblock %}

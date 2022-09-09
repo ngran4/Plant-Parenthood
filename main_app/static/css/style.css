@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+/* ---------------------- BASE ---------------------- */
 body {
     height: 100vh;
     margin: 0;
@@ -29,17 +30,6 @@ body {
     flex-direction: row;
     align-content: flex-end;
     font-size: 150px;
-}
-
-.about {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -10px;
-    right: 10px;
-    resize: none;
-    z-index: 10;
 }
 
 .wrapper {
@@ -99,8 +89,7 @@ body {
     }
 }
 
-/* Button CSS
-*/
+/* ---------------------- BUTTONS ---------------------- */
 .button-50 {
     display: block;
     width: 100%;
@@ -180,7 +169,7 @@ body {
     z-index: 1;
 }
 
-/* Log-In Page */
+/* ---------------------- LOGIN PAGE ---------------------- */
 
 .monstera-three {
     transform: rotate(0.85turn);
@@ -204,7 +193,7 @@ body {
     font-size: 60px;
 }
 
-/* Sign-Up Form */
+/* ---------------------- SIGN-UP PAGE ---------------------- */
 
 .signup-form {
     z-index: 10;
@@ -227,12 +216,23 @@ body {
     z-index: 1;
 }
 
-/* about page */
+/* ---------------------- ABOUT PAGE ---------------------- */
 .row {
     align-items: center;
 }
 
-/* forms */
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  resize: none;
+  z-index: 10;
+}
+
+/* ---------------------- FORMS ---------------------- */
 .green-text {
     color: green
 }
@@ -309,7 +309,7 @@ th {
     height: 150px;
 }
 
-/* detail page */
+/* ---------------------- DETAIL PAGE ---------------------- */
 .detail-image {
     border-radius: 15px;
     width: 300px;

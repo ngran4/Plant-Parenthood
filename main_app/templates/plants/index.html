@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
+
+
 <div class="text-center">
-<h1>My Plants</h1>
+  <h1>My Plants</h1>
 
-{% if plants.count %}
-<div class="list-container">
-{% for plant in plants %}
-  <a href="{% url 'detail' plant.id %}">
-    <div class="list">
-      {% for photo in plant.photo_set.all %}
-        <img src="{{photo.url}}" class="image" alt="Plant Photo">
-      {% empty %}
-        <img src="https://imgur.com/16wehxA.png" class="image" alt="No Photo Uploaded">
-      {% endfor %}
-      <h6>{{ plant.nickname }}</h6>
-      <p>Common Name: {{ plant.common_name }}</p>
+  {% if plants.count %}
+    <div class="list-container">
+    {% for plant in plants %}
+      <a href="{% url 'detail' plant.id %}">
+        <div class="list">
+          {% for photo in plant.photo_set.all %}
+            <img src="{{photo.url}}" class="image" alt="Plant Photo">
+          {% empty %}
+            <img src="https://imgur.com/16wehxA.png" class="image" alt="No Photo Uploaded">
+          {% endfor %}
+          <h6>{{ plant.nickname }}</h6>
+          <p>Common Name: {{ plant.common_name }}</p>
+        </div>
+    </a>
+    {% endfor %}
     </div>
-  </a>
-{% endfor %}
-</div>
-{% else %}
+  {% else %}
     <p>No plants yet. :(</p>
-{% endif %}
-
+  {% endif %}
 </div>
+
 {% endblock %}

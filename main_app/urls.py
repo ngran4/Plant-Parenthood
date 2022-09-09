@@ -4,13 +4,13 @@ from . import views
 urlpatterns = [
   path('', views.home, name='home'),
   path('about/', views.about, name='about'),
-  # Plant stuff
+  # PlantS
   path('plants/', views.plants_index, name='index'),
   path('plants/create/', views.PlantCreate.as_view(), name='plants_create'),
   path('plants/<int:pk>/update/', views.PlantUpdate.as_view(), name="plants_update"),
   path('plants/<int:pk>/delete/', views.PlantDelete.as_view(), name="plants_delete"),
   path('plants/<int:plant_id>/', views.plants_detail, name="detail"),
-  # Watering stuff
+  # Watering
   path('plants/<int:plant_id>/add_watering', views.add_watering, name='add_watering'),
   # Photos
   path('plants/<int:plant_id>/plant_photo/', views.add_photo, name='add_photo'),
@@ -22,6 +22,6 @@ urlpatterns = [
   path('fertilizers/<int:pk>/delete/', views.FertilizerDelete.as_view(), name="fertilizers_delete"),
   path('plants/<int:plant_id>/assoc_fertilizer/<int:fertilizer_id>/', views.assoc_fertilizer, name='assoc_fertilizer'),
   path('plants/<int:plant_id>/remove_fertilizer/<int:fertilizer_id>/', views.remove_fertilizer, name='remove_fertilizer'),
-  # Account stuff
+  # Account
   path('accounts/signup/', views.signup, name='signup'),
 ]

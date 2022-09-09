@@ -2,17 +2,19 @@
 {% block content %}
 
 <h1 class="signup-header">Sign Up</h1>
+
 {% if error_message %}<p>{{ error_message }}</p>{% endif %}
+
 <form class="signup-form"method="post" action="{% url 'signup' %}">
-    <div>
+  <div>
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Sign Up">
-</div>
+  </div>
 
-<div class="monstera-four">
+  <div class="monstera-four">
     <img src="https://i.imgur.com/vCVknyq.png">
-</div>
+  </div>
 
 </form>
 {% endblock %}

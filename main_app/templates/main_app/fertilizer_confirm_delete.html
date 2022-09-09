@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
 <div class="text-center">
   <h1>Delete Fertilizer</h1>
   <h4>Are you sure you want to delete <span class="green-text">{{ object.brand_name }}</span>?</h4>
@@ -11,4 +11,5 @@
     <a href="{% url 'fertilizers_detail' object.id %}" class="modify">Cancel</a>
   </form>
 </div>
+
 {% endblock %}

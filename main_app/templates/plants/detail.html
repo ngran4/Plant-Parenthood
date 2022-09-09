@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<!----------- DETAILS ----------->
 <h1 class="text-center">Plant Details</h1>
 <div class="detail-container">
   <h2 class="green-text">{{ plant.nickname }}</h2>
@@ -16,10 +17,12 @@
       <input type="submit" value="Upload Photo">
     </form>
   </div>
+
   <div class="plant-info">
     <div class="icon1">
       <i class="fa-regular fa-pen-to-square fa-bounce fa-xl icon"></i>
-    </div><br>
+    </div>
+    <br>
     <p>Common Name: {{ plant.common_name }}</p>
     <p>Scientific Name: {{ plant.scientific_name }}</p>
     <p>Care Difficulty: {{ plant.get_care_difficulty_display }} </p>
@@ -30,6 +33,9 @@
       <a href="{% url 'plants_delete' plant.id %}" class="modify">Delete</a>
     </div>
   </div>
+
+
+  <!----------- WATERING ----------->
   <div class="plant-info">
     <div class="icon2">
       <i class="fa-solid fa-droplet fa-bounce fa-xl"></i>
@@ -53,21 +59,23 @@
   </div>
 </div>
 
+
+<!----------- FERTILIZER ----------->
 <div class="detail-container">
   <div class="text-center">
     <h3>{{ plant.nickname }}'s Fertilizer</h3>
   {% if plant.fertilizers.count %}
     {% for fertilizer in plant.fertilizers.all %}
-    <div class="fertilizer-list">
-      <h5 class="green-text">{{ fertilizer.brand_name }}</h5>
-      <p>Source Type: {{ fertilizer.source_type }}</p>
-      <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
-      <p>Recommended Frequency: {{ fertilizer.rec_freq }}</p>
-      <form action="{% url 'remove_fertilizer' plant.id fertilizer.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Remove Fertilizer</button>
-      </form>
-    </div>
+      <div class="fertilizer-list">
+        <h5 class="green-text">{{ fertilizer.brand_name }}</h5>
+        <p>Source Type: {{ fertilizer.source_type }}</p>
+        <p>Nutrient Balance: {{ fertilizer.nutrient_balance }}</p>
+        <p>Recommended Frequency: {{ fertilizer.rec_freq }}</p>
+        <form action="{% url 'remove_fertilizer' plant.id fertilizer.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Remove Fertilizer</button>
+        </form>
+      </div>
     {% endfor %}
   {% else %}
     <h5>No fertilizers</h5>
